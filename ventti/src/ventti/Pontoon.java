@@ -17,7 +17,7 @@ public class Pontoon
     System.out.println("The card values are as follows:");
     System.out.println("    Cards Two - Ten are valued 2 - 10");
     System.out.println("    Jack, Queen and King are valued 10");
-    System.out.println("    Ässä on arvoltaan pelaajalle joko 1 tai 14, jakajalle 1.\n");
+    System.out.println("    Ässä on arvoltaan 14.\n");
   //begin when user is ready
 System.out.print("\n"+"Press enter to begin.");
 String begin = myKeyboard.nextLine();
@@ -156,7 +156,7 @@ int compHand = myKeyboard.nextInt();
     String b = "a";
     switch (a)
     {
-      case 1:
+      case 14:
       b = "Ace";
       break;
       case 2:
