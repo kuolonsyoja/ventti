@@ -6,8 +6,9 @@ public class Pontoon
   //create Scanner
     Scanner myKeyboard = new Scanner(System.in);
   //initilize hands for player and comp at 0
-    int playerHand = 0;
-    int compHand = 0;
+    int pelaajanKasi = 0;
+    int jakajanKasi
+            = 0;
   
   //describe program to user
     System.out.print("Program to play the game pontoon (or 21) against the computer,"); 
@@ -15,7 +16,7 @@ public class Pontoon
     System.out.println(" is a tie the computer wins\n");
   //tell user what the values are
     System.out.println("The card values are as follows:");
-    System.out.println("    Cards Two - Ten are valued 2 - 10");
+    System.out.println("    Cards Kaksi - Ten are valued 2 - 10");
     System.out.println("    Jack, Queen and King are valued 10");
     System.out.println("    Ässä on arvoltaan 14.\n");
   //begin when user is ready
@@ -31,17 +32,17 @@ String begin = myKeyboard.nextLine();
 System.out.print("\n"+"Press enter to continue.");
 begin = myKeyboard.nextLine();
     String playerSecondCard = rank();
-    int playerCardTwo = value(playerSecondCard);
+    int playerCardKaksi = value(playerSecondCard);
     System.out.println("\n"+"Your second card is: "+playerSecondCard);
-    playerHand = playerHand + (playerCardOne+playerCardTwo);
+    pelaajanKasi = pelaajanKasi + (playerCardOne+playerCardKaksi);
     String compSecondCard = rank();
-    int compCardTwo = value(compSecondCard);
+    int compCardKaksi = value(compSecondCard);
     System.out.println("The computers second card is: *hidden*");
-    compHand = compHand + (compCardOne+compCardTwo);
+    jakajanKasi = jakajanKasi + (compCardOne+compCardKaksi);
    
-    System.out.println("\n"+"Your score is: "+playerHand);
+    System.out.println("\n"+"Your score is: "+pelaajanKasi);
   //BLACKJACK (21 in first 2 cards)
-    if ((playerCardOne+playerCardTwo)==21)
+    if ((playerCardOne+playerCardKaksi)==21)
     {
       System.out.println("You have BLACKJACK");
     }
@@ -52,14 +53,14 @@ begin = myKeyboard.nextLine();
     int playerCardNext = 0;
     System.out.print("\n"+"Would you like another card (y/n)? ");
     String additionalCard = myKeyboard.nextLine();
-    while ((playerHand <= 21)&&(additionalCard.equalsIgnoreCase("y")))
+    while ((pelaajanKasi <= 21)&&(additionalCard.equalsIgnoreCase("y")))
     {
       playerNextCard = rank();
       playerCardNext = value(playerNextCard);
       System.out.println("\n"+"Your next card is: "+playerNextCard);
-      playerHand = playerHand + playerCardNext;
-      System.out.println("Your new score is: "+playerHand);
-      if (playerHand > 21)
+      pelaajanKasi = pelaajanKasi + playerCardNext;
+      System.out.println("Your new score is: "+pelaajanKasi);
+      if (pelaajanKasi > 21)
       {
 	System.out.println("You are bust, no more cards dealt");
       }
@@ -78,21 +79,21 @@ begin = myKeyboard.nextLine();
     String compNextCard;
     int compCardNext = 0;
     System.out.println("\n"+"The computers second card is: "+compSecondCard);
-    System.out.println("\n"+"The computers score is: "+compHand);
+    System.out.println("\n"+"The computers score is: "+jakajanKasi);
 System.out.print("\n"+"Press enter to continue.\n");
 begin = myKeyboard.nextLine();
-    if ((compCardOne+compCardTwo)==21)	
+    if ((compCardOne+compCardKaksi)==21)	
     {
       System.out.println("The computer has BLACKJACK");
     }
-    while (compHand < 15)
+    while (jakajanKasi < 15)
     {
       compNextCard = rank();
       compCardNext = value(compNextCard);
       System.out.println("\n"+"The computer will take another card");
       System.out.println("The computers next card is: "+compNextCard);
-      compHand = compHand + compCardNext;
-      System.out.println("The computers new score is: "+compHand); 
+      jakajanKasi = jakajanKasi + compCardNext;
+      System.out.println("The computers new score is: "+jakajanKasi); 
 System.out.print("\n"+"Press enter to continue.\n");
 begin = myKeyboard.nextLine(); 
     }
@@ -101,44 +102,44 @@ begin = myKeyboard.nextLine();
 /*
 System.out.println("Please enter values for each players hand for testing");
 System.out.print("players score: ");
-int playerHand = myKeyboard.nextInt();
+int pelaajanKasi = myKeyboard.nextInt();
 System.out.print("comps score: ");
-int compHand = myKeyboard.nextInt();
+int jakajanKasi = myKeyboard.nextInt();
 */
   //final hand totals
-    System.out.println("Your final score is: "+playerHand);
-    System.out.println("The computers final score is: "+compHand+"\n");
+    System.out.println("Your final score is: "+pelaajanKasi);
+    System.out.println("The computers final score is: "+jakajanKasi+"\n");
   //check if anyone is bust
-    if (playerHand > 21)
+    if (pelaajanKasi > 21)
     {
       System.out.println("You are bust");
     }
-    if (compHand > 21)
+    if (jakajanKasi > 21)
     {
       System.out.println("The computer is bust");
     }
-    if ((playerHand > 21) && (compHand > 21))
+    if ((pelaajanKasi > 21) && (jakajanKasi > 21))
     {
       System.out.println("\n"+"Both players are bust, no winner");
     }
   //check for winner if no-one bust
-    if ((compHand > 21) && (playerHand <= 21))
+    if ((jakajanKasi > 21) && (pelaajanKasi <= 21))
     {
       System.out.println("You win!");
     }
-    if ((playerHand > 21) && (compHand <= 21))
+    if ((pelaajanKasi > 21) && (jakajanKasi <= 21))
     {
       System.out.println("The computer wins!");
     }
-    if ((compHand == playerHand) && (compHand <= 21))
+    if ((jakajanKasi == pelaajanKasi) && (jakajanKasi <= 21))
     {
       System.out.println("Hands are tied, computer wins");
     }
-    if ((compHand <= 21) && (compHand > playerHand))
+    if ((jakajanKasi <= 21) && (jakajanKasi > pelaajanKasi))
     {
       System.out.println("The computer wins");
     }
-    if ((playerHand <= 21) && (playerHand > compHand))
+    if ((pelaajanKasi <= 21) && (pelaajanKasi > jakajanKasi))
     {
       System.out.println("You win!");
     }
@@ -157,25 +158,25 @@ int compHand = myKeyboard.nextInt();
     switch (a)
     {
       case 14:
-      b = "Ace";
+      b = "Ässä";
       break;
       case 2:
-      b = "Two";
+      b = "Kaksi";
       break;
       case 3:
-      b = "Three";
+      b = "Kolme";
       break;
       case 4:
-      b = "Four";
+      b = "Neljä";
       break;
       case 5:
-      b = "Five";
+      b = "Viisi";
       break;
       case 6:
-      b = "Six";
+      b = "Kuusi";
       break;
       case 7:
-      b = "Seven";
+      b = "Seitsemän";
       break;
       case 8:
       b = "Eight";
@@ -203,31 +204,31 @@ int compHand = myKeyboard.nextInt();
   {
     //random number between 1 - 13 
     int b = 0;
-    if (a.equals("Ace"))
+    if (a.equals("Ässä"))
     {
       b = 11;
     }
-    if (a.equals("Two"))
+    if (a.equals("Kaksi"))
     {
       b = 2;
     }
-    if (a.equals("Three"))
+    if (a.equals("Kolme"))
     {
       b = 3;
     }   
-    if (a.equals("Four"))
+    if (a.equals("Neljä"))
     {
       b = 4;
     }    
-    if (a.equals("Five"))
+    if (a.equals("Viisi"))
     {
       b = 5;
     }
-    if (a.equals("Six"))
+    if (a.equals("Kuusi"))
     {
       b = 6;
     }
-    if (a.equals("Seven"))
+    if (a.equals("Seitsemän"))
     {
       b = 7;
     }
