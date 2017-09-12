@@ -11,90 +11,90 @@ public class Pontoon
             = 0;
   
   //describe program to user
-    System.out.print("Program to play the game pontoon (or 21) against the computer,"); 
-    System.out.print(" if the game score");
-    System.out.println(" is a tie the computer wins\n");
+    System.out.print("Tämä on ohjelma Venttin pelaamiseen, Tetokonetta vastaan,"); 
+    System.out.print(" jos pelin pistemäärä");
+    System.out.println(" on tasapeli, tietokone voittaa\n");
   //tell user what the values are
-    System.out.println("The card values are as follows:");
-    System.out.println("    Cards Kaksi - Ten are valued 2 - 10");
-    System.out.println("    Jack, Queen and King are valued 10");
+    System.out.println("Korttien arvot ovat seuraavat:");
+    System.out.println("    Kortit Kaksi - Kymmenen ovat arvoltaan 2 - 10");
+    System.out.println("    Jätkä, Kuningatar ja Kuningas ovat arvoltaan 10");
     System.out.println("    Ässä on arvoltaan 14.\n");
   //begin when user is ready
-System.out.print("\n"+"Press enter to begin.");
+System.out.print("\n"+"Paina entteriä jatkaaseen.");
 String begin = myKeyboard.nextLine();
   //deal initial hands
     String playerFirstCard = rank();
     int playerCardOne = value(playerFirstCard);
-    System.out.println("\n"+"Your first card is: "+playerFirstCard);
+    System.out.println("\n"+"Sinun esimmäinen kortti on: "+playerFirstCard);
     String compFirstCard = rank();
     int compCardOne = value(compFirstCard);
-    System.out.println("The computers first card is: "+compFirstCard);
-System.out.print("\n"+"Press enter to continue.");
+    System.out.println("Tietokoneen ensimmäinen kortti on: "+compFirstCard);
+System.out.print("\n"+"Paina entteriä jatkaakseen.");
 begin = myKeyboard.nextLine();
     String playerSecondCard = rank();
     int playerCardKaksi = value(playerSecondCard);
-    System.out.println("\n"+"Your second card is: "+playerSecondCard);
+    System.out.println("\n"+"Sinun toinen kortti on: "+playerSecondCard);
     pelaajanKasi = pelaajanKasi + (playerCardOne+playerCardKaksi);
     String compSecondCard = rank();
     int compCardKaksi = value(compSecondCard);
-    System.out.println("The computers second card is: *hidden*");
+    System.out.println("Tietokoneen toinen kortti on: *Pilotettu*");
     jakajanKasi = jakajanKasi + (compCardOne+compCardKaksi);
    
-    System.out.println("\n"+"Your score is: "+pelaajanKasi);
+    System.out.println("\n"+"Sinun pistemäärä on: "+pelaajanKasi);
   //BLACKJACK (21 in first 2 cards)
     if ((playerCardOne+playerCardKaksi)==21)
     {
-      System.out.println("You have BLACKJACK");
+      System.out.println("Sait VENTTIN");
     }
  
   //deal additional cards to player
   //initilize additional card values
     String playerNextCard;
     int playerCardNext = 0;
-    System.out.print("\n"+"Would you like another card (y/n)? ");
+    System.out.print("\n"+"Haluaisitko toisen kortin (k/e)? ");
     String additionalCard = myKeyboard.nextLine();
-    while ((pelaajanKasi <= 21)&&(additionalCard.equalsIgnoreCase("y")))
+    while ((pelaajanKasi <= 21)&&(additionalCard.equalsIgnoreCase("k")))
     {
       playerNextCard = rank();
       playerCardNext = value(playerNextCard);
-      System.out.println("\n"+"Your next card is: "+playerNextCard);
+      System.out.println("\n"+"sinun seuraava kortti on: "+playerNextCard);
       pelaajanKasi = pelaajanKasi + playerCardNext;
-      System.out.println("Your new score is: "+pelaajanKasi);
+      System.out.println("Sinun uusi pistemäärä on: "+pelaajanKasi);
       if (pelaajanKasi > 21)
       {
-	System.out.println("You are bust, no more cards dealt");
+	System.out.println("Sinä olet yli, kortteja ei enään jaeta");
       }
       else
       {
-      System.out.print("\n"+"Would you like another card (y/n)? ");
+      System.out.print("\n"+"Haluaistkko sinä toisen kortin (k/e)? ");
       additionalCard = myKeyboard.nextLine();
       }       
     }
   //pause in the game
-System.out.print("\n"+"It is now the computers turn, please press enter to continue.");
+System.out.print("\n"+"Nyt on tietokoneen vuoro, paina entteriä jatkaaseen.");
 begin = myKeyboard.nextLine();
 		
   //deal additional cards to computer
   //initilize additional card values
     String compNextCard;
     int compCardNext = 0;
-    System.out.println("\n"+"The computers second card is: "+compSecondCard);
-    System.out.println("\n"+"The computers score is: "+jakajanKasi);
-System.out.print("\n"+"Press enter to continue.\n");
+    System.out.println("\n"+"Tietokoneen toinen kortti on: "+compSecondCard);
+    System.out.println("\n"+"Tietokoneen pistemäärä on: "+jakajanKasi);
+System.out.print("\n"+"Paina entteriä jatkaakseen.\n");
 begin = myKeyboard.nextLine();
     if ((compCardOne+compCardKaksi)==21)	
     {
-      System.out.println("The computer has BLACKJACK");
+      System.out.println("Tietokone sai VENTTIN");
     }
     while (jakajanKasi < 15)
     {
       compNextCard = rank();
       compCardNext = value(compNextCard);
-      System.out.println("\n"+"The computer will take another card");
-      System.out.println("The computers next card is: "+compNextCard);
+      System.out.println("\n"+"Tieto kone ottaa toisen kortin");
+      System.out.println("Tietokoneen seuraava kortti on: "+compNextCard);
       jakajanKasi = jakajanKasi + compCardNext;
-      System.out.println("The computers new score is: "+jakajanKasi); 
-System.out.print("\n"+"Press enter to continue.\n");
+      System.out.println("Tietokoneen uudet pisteet ovat: "+jakajanKasi); 
+System.out.print("\n"+"Paina entteriä jatkaakseen.\n");
 begin = myKeyboard.nextLine(); 
     }
     System.out.println();
@@ -107,41 +107,41 @@ System.out.print("comps score: ");
 int jakajanKasi = myKeyboard.nextInt();
 */
   //final hand totals
-    System.out.println("Your final score is: "+pelaajanKasi);
-    System.out.println("The computers final score is: "+jakajanKasi+"\n");
+    System.out.println("Sinun loppu tulos on: "+pelaajanKasi);
+    System.out.println("Tietokoneen loppu tulos on: "+jakajanKasi+"\n");
   //check if anyone is bust
     if (pelaajanKasi > 21)
     {
-      System.out.println("You are bust");
+      System.out.println("Sinä ylitit");
     }
     if (jakajanKasi > 21)
     {
-      System.out.println("The computer is bust");
+      System.out.println("Tietokone ylitti");
     }
     if ((pelaajanKasi > 21) && (jakajanKasi > 21))
     {
-      System.out.println("\n"+"Both players are bust, no winner");
+      System.out.println("\n"+"Molemmat ylittivät, kumpikaan ei voita");
     }
   //check for winner if no-one bust
     if ((jakajanKasi > 21) && (pelaajanKasi <= 21))
     {
-      System.out.println("You win!");
+      System.out.println("Sinä voitat!");
     }
     if ((pelaajanKasi > 21) && (jakajanKasi <= 21))
     {
-      System.out.println("The computer wins!");
+      System.out.println("Tietokone voittaa!");
     }
     if ((jakajanKasi == pelaajanKasi) && (jakajanKasi <= 21))
     {
-      System.out.println("Hands are tied, computer wins");
+      System.out.println("Tilanne on tasan, Jakaja voittaa");
     }
     if ((jakajanKasi <= 21) && (jakajanKasi > pelaajanKasi))
     {
-      System.out.println("The computer wins");
+      System.out.println("Tietokone voittaa!");
     }
     if ((pelaajanKasi <= 21) && (pelaajanKasi > jakajanKasi))
     {
-      System.out.println("You win!");
+      System.out.println("Sinä voitat!");
     }
   }
 //method for random number generator 1-13
@@ -179,22 +179,22 @@ int jakajanKasi = myKeyboard.nextInt();
       b = "Seitsemän";
       break;
       case 8:
-      b = "Eight";
+      b = "Kahdeksan";
       break;
       case 9:
-      b = "Nine";
+      b = "Yhdeksän";
       break;
       case 10:
-      b = "Ten";
+      b = "Kymmenen";
       break;
       case 11:
-      b = "Jack";
+      b = "Jätkä";
       break;
       case 12:
-      b = "Queen";
+      b = "Kuningatar";
       break;
       case 13:
-      b = "King";
+      b = "Kuningas";
       break;
     }
     return b;
@@ -232,27 +232,27 @@ int jakajanKasi = myKeyboard.nextInt();
     {
       b = 7;
     }
-    if (a.equals("Eight"))
+    if (a.equals("Kahdeksan"))
     {
       b = 8;
     }
-    if (a.equals("Nine"))
+    if (a.equals("Yhdeksän"))
     {
       b = 9;
     }
-    if (a.equals("Ten"))
+    if (a.equals("Kymmenen"))
     {
       b = 10;
     }
-    if (a.equals("Jack"))
+    if (a.equals("Jätkä"))
     {
       b = 10;
     }
-    if (a.equals("Queen"))
+    if (a.equals("Kunigatar"))
     {
       b = 10;
     }
-    if (a.equals("King"))
+    if (a.equals("Kuningas"))
     {
       b = 10;
     }
